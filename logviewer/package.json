@@ -1,0 +1,17 @@
+{
+  "name": "logviewer",
+  "version": "1.0.0",
+  "description": "Tails a log file outputted in JSON. Pretty-prints lines and adds a timestamp. Useful in debugging, eg: `error_log($msg, 3, '/project/err.log')`, and `node logviewer.js /project/err.log`.",
+  "main": "logviewer.js",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "prettyjson": "^1.2.1",
+    "tail": "^2.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joel Hamilton",
+  "license": "ISC"
+}
