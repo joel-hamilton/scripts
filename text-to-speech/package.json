@@ -1,0 +1,13 @@
+{
+  "name": "text-to-speech",
+  "version": "1.0.0",
+  "description": "Convert text to speech using Google Cloud",
+  "main": "convert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joel Hamilton",
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^3.1.3"
+  }
+}
