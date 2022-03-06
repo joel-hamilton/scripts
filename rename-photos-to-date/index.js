@@ -6,7 +6,6 @@ const fs = require("fs");
 const path = require("path");
 const promisify = require("util").promisify;
 const exiftool = require("exiftool-vendored").exiftool;
-const { DateTime } = require("luxon");
 const glob = promisify(require("glob"));
 const rename = promisify(fs.rename);
 const readline = require("readline");
@@ -58,15 +57,9 @@ const getDateFileName = async (filePath) => {
     return null;
   }
 
-  const dateString = `${[
-      date.year, 
-      padNum(date.month), 
-      padNum(date.day)
-    ].join("")}_${[
-    padNum(date.hour),
-    padNum(date.minute),
-    padNum(date.second),
-  ].join("")}`;
+  const dateString = `${[date.year, padNum(date.month), padNum(date.day)].join(
+    ""
+  )}_${[padNum(date.hour), padNum(date.minute), padNum(date.second)].join("")}`;
 
   return path.join(dirName, dateString) + `${fileExtension}`;
 };
@@ -80,5 +73,5 @@ const renameOldNewPaths = async ([filePath, newFilePath]) => {
 };
 
 const padNum = (number) => {
-    return (number + "").padStart(2, '0');
-}
+  return (number + "").padStart(2, "0");
+};
