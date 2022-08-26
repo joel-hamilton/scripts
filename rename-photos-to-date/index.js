@@ -16,6 +16,7 @@ const dryRun = process.argv[3] === "--dry-run";
 
 (async () => {
   const filePaths = await glob(`${dirPath}/**/*.CR2`);
+  console.log(`Searching exif data in ${filePaths.length} files`);
   const newPathsPromises = filePaths.map(getDateFileName);
   const newOldPaths = zip(filePaths, await Promise.all(newPathsPromises));
   const filteredNewOldPaths = newOldPaths.filter((nop) => !!nop[1]);
@@ -56,7 +57,7 @@ const getDateFileName = async (filePath) => {
     console.log(`Not renaming ${filePath}. No date found in exif data`);
     return null;
   }
-
+console.log(date);
   const dateString = `${[date.year, padNum(date.month), padNum(date.day)].join(
     ""
   )}_${[padNum(date.hour), padNum(date.minute), padNum(date.second)].join("")}`;
